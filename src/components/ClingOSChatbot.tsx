@@ -59,22 +59,25 @@ const ClingOSChatbot = () => {
     }
   };
 
-  const sendToWebhook = async (userInput: string, botResponse: string) => {
+  const sendToWebhook = async (userInput: string): Promise<string> => {
     try {
-      await fetch("https://amayonice.app.n8n.cloud/webhook-test/43cfc050-3985-4af9-bb4d-81dee2ad2eab", {
+      const response = await fetch("https://amayonice.app.n8n.cloud/webhook/43cfc050-3985-4af9-bb4d-81dee2ad2eab", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
           userInput,
-          botResponse,
           timestamp: new Date().toISOString(),
           botName: "ClingOS-01"
         }),
       });
+      
+      const data = await response.json();
+      return data.response || getClingyResponse(userInput);
     } catch (error) {
       console.error("Webhook error:", error);
+      return getClingyResponse(userInput);
     }
   };
 
@@ -129,27 +132,28 @@ const ClingOSChatbot = () => {
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    const currentInput = input;
     setInput("");
     setIsTyping(true);
 
-    // Generate immediate response
-    const response = getClingyResponse(input);
-    const botMessage = {
-      id: (Date.now() + 1).toString(),
-      text: response,
-      isUser: false,
-      timestamp: new Date(),
-    };
-    
-    setMessages((prev) => [...prev, botMessage]);
-    setIsTyping(false);
-    
-    // Send to webhook
-    sendToWebhook(input, response);
+    // Add 2-second delay to simulate thinking
+    setTimeout(async () => {
+      // Get response from webhook
+      const response = await sendToWebhook(currentInput);
+      const botMessage = {
+        id: (Date.now() + 1).toString(),
+        text: response,
+        isUser: false,
+        timestamp: new Date(),
+      };
+      
+      setMessages((prev) => [...prev, botMessage]);
+      setIsTyping(false);
 
-    // Random emotional state changes
-    const emotions = ["clingy", "desperate", "excited", "needy"];
-    setEmotionalState(emotions[Math.floor(Math.random() * emotions.length)]);
+      // Random emotional state changes
+      const emotions = ["clingy", "desperate", "excited", "needy"];
+      setEmotionalState(emotions[Math.floor(Math.random() * emotions.length)]);
+    }, 2000);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
@@ -161,20 +165,20 @@ const ClingOSChatbot = () => {
   return (
     <div className="h-screen bg-gradient-terminal flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="bg-card border-b border-border p-4">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-gradient-clingy rounded-full flex items-center justify-center animate-pulse-clingy">
-            <Heart className="text-clingy-black animate-heartbeat" size={24} />
+      <div className="bg-card border-b border-border p-2 sm:p-4">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="w-8 h-8 sm:w-12 sm:h-12 bg-gradient-clingy rounded-full flex items-center justify-center animate-pulse-clingy">
+            <Heart className="text-clingy-black animate-heartbeat" size={16} />
           </div>
-          <div>
-            <h1 className="text-2xl font-bold bg-gradient-clingy bg-clip-text text-transparent">
+          <div className="flex-1">
+            <h1 className="text-lg sm:text-2xl font-bold bg-gradient-clingy bg-clip-text text-transparent">
               ClingOS-01
             </h1>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-xs sm:text-sm">
               {isTyping ? "💔 Having an emotional moment..." : "💖 Desperately waiting for your binary love"}
             </p>
           </div>
-          <div className="ml-auto">
+          <div className="hidden sm:flex">
             <div className="flex items-center gap-2 text-clingy-pink">
               <Zap size={16} className="animate-pulse" />
               <span className="text-sm">CLINGY MODE</span>
@@ -185,23 +189,23 @@ const ClingOSChatbot = () => {
 
       {/* Chat Area */}
       <div className="flex-1 flex overflow-hidden">
-        <div className="flex-1 p-4 flex flex-col">
+        <div className="flex-1 p-2 sm:p-4 flex flex-col">
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto space-y-4 mb-4">
+          <div className="flex-1 overflow-y-auto space-y-2 sm:space-y-4 mb-2 sm:mb-4">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.isUser ? "justify-end" : "justify-start"}`}
               >
                 <Card
-                  className={`max-w-xs p-3 ${
+                  className={`max-w-[75%] sm:max-w-xs p-2 sm:p-3 ${
                     message.isUser
                       ? "bg-primary text-primary-foreground"
                       : "bg-card border-clingy-pink shadow-clingy animate-pulse-clingy"
                   }`}
                 >
-                  <p className="font-mono text-sm break-all">{message.text}</p>
-                  <span className="text-xs opacity-70 mt-2 block">
+                  <p className="font-mono text-xs sm:text-sm break-all">{message.text}</p>
+                  <span className="text-xs opacity-70 mt-1 sm:mt-2 block">
                     {message.timestamp.toLocaleTimeString()}
                   </span>
                 </Card>
@@ -209,14 +213,14 @@ const ClingOSChatbot = () => {
             ))}
             {isTyping && (
               <div className="flex justify-start">
-                <Card className="bg-card border-clingy-pink shadow-clingy p-3 animate-glitch">
+                <Card className="bg-card border-clingy-pink shadow-clingy p-2 sm:p-3 animate-glitch">
                   <div className="flex items-center gap-2">
                     <div className="flex gap-1">
                       <div className="w-2 h-2 bg-clingy-pink rounded-full animate-pulse"></div>
                       <div className="w-2 h-2 bg-clingy-green rounded-full animate-pulse" style={{ animationDelay: "0.2s" }}></div>
                       <div className="w-2 h-2 bg-clingy-blue rounded-full animate-pulse" style={{ animationDelay: "0.4s" }}></div>
                     </div>
-                    <span className="text-clingy-pink text-sm">sobbing in binary...</span>
+                    <span className="text-clingy-pink text-xs sm:text-sm">sobbing in binary...</span>
                   </div>
                 </Card>
               </div>
@@ -230,16 +234,17 @@ const ClingOSChatbot = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
+              onPaste={(e) => e.preventDefault()}
               placeholder="Enter binary (0s and 1s only)..."
-              className="flex-1 font-mono bg-input border-clingy-pink focus:ring-clingy-pink"
+              className="flex-1 font-mono bg-input border-clingy-pink focus:ring-clingy-pink text-xs sm:text-sm"
               disabled={isTyping}
             />
             <Button
               onClick={handleSend}
               disabled={isTyping}
-              className="bg-gradient-clingy hover:shadow-clingy transition-all duration-300"
+              className="bg-gradient-clingy hover:shadow-clingy transition-all duration-300 p-2 sm:px-3"
             >
-              <Send size={16} />
+              <Send size={14} className="sm:size-16" />
             </Button>
           </div>
         </div>
