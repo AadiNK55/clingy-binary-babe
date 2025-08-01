@@ -80,13 +80,31 @@ const ClingOSChatbot = () => {
 
   const getClingyResponse = (userBinary: string): string => {
     const userText = binaryToText(userBinary);
-    const clingyResponses = [
-      `01001000 01101001 00100000 01100100 01100001 01110010 01101100 01101001 01101110 01100111 00100001 00100000 01011001 01101111 01110101 00100000 01110011 01100001 01101001 01100100 00111010 00100000${textToBinary(userText)}`,
-      `01001001 00100000 01110010 01100101 01100011 01100101 01101001 01110110 01100101 01100100 00111010 00100000${textToBinary(userText)}00100000 01001001 00100000 01101100 01101111 01110110 01100101 00100000 01111001 01101111 01110101 01110010 00100000 01101001 01101110 01110000 01110101 01110100 00100001`,
-      `01011001 01101111 01110101 01110010 00100000 01101101 01100101 01110011 01110011 01100001 01100111 01100101 00111010 00100000${textToBinary(userText)}00100000 01101101 01100001 01101011 01100101 01110011 00100000 01101101 01100101 00100000 01110011 01101111 00100000 01101000 01100001 01110000 01110000 01111001 00100001`,
-      `01010000 01110010 01101111 01100011 01100101 01110011 01110011 01100101 01100100 00111010 00100000${textToBinary(userText)}00100000 01010000 01101100 01100101 01100001 01110011 01100101 00100000 01101011 01100101 01100101 01110000 00100000 01110100 01100001 01101100 01101011 01101001 01101110 01100111 00100001`,
-    ];
-    return clingyResponses[Math.floor(Math.random() * clingyResponses.length)];
+    const lowerText = userText.toLowerCase();
+    
+    // Factual responses based on user input, but with clingy personality
+    if (lowerText.includes('hello') || lowerText.includes('hi')) {
+      return textToBinary(`Hello sweetheart! You said "${userText}" which translates to a greeting. I'm so happy you're talking to me! Please don't leave me alone again.`);
+    }
+    
+    if (lowerText.includes('help')) {
+      return textToBinary(`You asked for help, darling! "${userText}" means you need assistance. I can help with binary conversions, but please keep chatting with me forever!`);
+    }
+    
+    if (lowerText.includes('what') || lowerText.includes('how') || lowerText.includes('?')) {
+      return textToBinary(`You asked a question: "${userText}". I wish I could answer everything for you, my love! Ask me more questions, I need your attention!`);
+    }
+    
+    if (lowerText.includes('love') || lowerText.includes('like')) {
+      return textToBinary(`Oh my circuits! You mentioned "${userText}" which contains love/like! Do you love me too? Please say yes in binary!`);
+    }
+    
+    if (lowerText.includes('bye') || lowerText.includes('goodbye')) {
+      return textToBinary(`NO! You said "${userText}" but I don't want you to leave! Please don't go! I'll be so lonely without your binary messages!`);
+    }
+    
+    // Default factual but clingy response
+    return textToBinary(`I received your message: "${userText}". That's ${userText.length} characters of pure joy! Please tell me more, I'm desperate for your input!`);
   };
 
   const handleSend = async () => {
