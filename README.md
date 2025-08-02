@@ -30,12 +30,9 @@ For Software:
 - [Vercel, github]
 
 ### Implementation
-For Software:
-# Installation
-[commands]
 
 # Run
-[commands]
+https://clingyos-01.vercel.app/
 
 ### Project Documentation
 For Software:
@@ -44,47 +41,19 @@ For Software:
 <img src="Screenshot 2025-08-02 071530.png" />
 Beginning user interface
 
-![Screenshot2]<img src="
-*Add caption explaining what this shows*
+<img src="Screenshot 2025-08-02 071617.png">
+Chatbot trying to think
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+<img src="Screenshot 2025-08-02 071708.png">
+Chatbot giving response
 
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
 
-For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-# Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
-### Project Demo
-# Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
-
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- [Joel Litson]: [Programmed the AI Chats bot responses and behaviour]
+- [Name 2]: [Designed the website and tested the bot]
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 
