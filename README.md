@@ -1,73 +1,96 @@
-# Welcome to your Lovable project
+<img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
-## Project info
 
-**URL**: https://lovable.dev/projects/4273c5e8-075a-44ae-bcbe-8da0ae8bb0cb
+# [ClingOS-01] 🎯
 
-## How can I edit this code?
 
-There are several ways of editing your application.
+## Basic Details
+### Team Name: [Hammertime]
 
-**Use Lovable**
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/4273c5e8-075a-44ae-bcbe-8da0ae8bb0cb) and start prompting.
+### Team Members
+- Team Lead: [Joel Litson] - [GEC Thrissur]
+- Member 2: [Aadi Narayanan K] - [GEC Thrissur]
+  
 
-Changes made via Lovable will be committed automatically to this repo.
+### Project Description
+[An clingy ai chat bot that only takes input and gives output in binary (8bit). The binary input needs to be manually typed as paste functionality is disabled. The bot is programmed to be clingy and emotional and doesnt directly answer the prompts provided by the user.]
 
-**Use your preferred IDE**
+### The Problem (that doesn't exist)
+[The lack of enough emotionally clingy chatbots which talks in only binary :(]
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### The Solution (that nobody asked for)
+[An emotionally clingy chatbot which talks in binary.]
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Technical Details
+### Technologies/Components Used
+For Software:
+- [React, Tailwind CSS,Supabase]
+- [Lovable, n8n]
+- [Vercel, github]
 
-Follow these steps:
+### Implementation
+For Software:
+# Installation
+[commands]
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Run
+[commands]
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Project Documentation
+For Software:
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Screenshots (Add at least 3)
+![Screenshot1](Add screenshot 1 here with proper name)
+*Add caption explaining what this shows*
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+![Screenshot2](Add screenshot 2 here with proper name)
+*Add caption explaining what this shows*
 
-**Edit a file directly in GitHub**
+![Screenshot3](Add screenshot 3 here with proper name)
+*Add caption explaining what this shows*
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# Diagrams
+![Workflow](Add your workflow/architecture diagram here)
+*Add caption explaining your workflow*
 
-**Use GitHub Codespaces**
+For Hardware:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+# Schematic & Circuit
+![Circuit](Add your circuit diagram here)
+*Add caption explaining connections*
 
-## What technologies are used for this project?
+![Schematic](Add your schematic diagram here)
+*Add caption explaining the schematic*
 
-This project is built with:
+# Build Photos
+![Components](Add photo of your components here)
+*List out all components shown*
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+![Build](Add photos of build process here)
+*Explain the build steps*
 
-## How can I deploy this project?
+![Final](Add photo of final product here)
+*Explain the final build*
 
-Simply open [Lovable](https://lovable.dev/projects/4273c5e8-075a-44ae-bcbe-8da0ae8bb0cb) and click on Share -> Publish.
+### Project Demo
+# Video
+[Add your demo video link here]
+*Explain what the video demonstrates*
 
-## Can I connect a custom domain to my Lovable project?
+# Additional Demos
+[Add any extra demo materials/links]
 
-Yes, you can!
+## Team Contributions
+- [Name 1]: [Specific contributions]
+- [Name 2]: [Specific contributions]
+- [Name 3]: [Specific contributions]
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
+Made with ❤️ at TinkerHub Useless Projects 
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+![Static Badge](https://img.shields.io/badge/TinkerHub-24?color=%23000000&link=https%3A%2F%2Fwww.tinkerhub.org%2F)
+![Static Badge](https://img.shields.io/badge/UselessProjects--25-25?link=https%3A%2F%2Fwww.tinkerhub.org%2Fevents%2FQ2Q1TQKX6Q%2FUseless%2520Projects)
+
+
+
