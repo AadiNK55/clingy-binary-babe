@@ -52,7 +52,7 @@ Chatbot giving response
 
 ## Team Contributions
 - [Joel Litson]: [Programmed the AI Chats bot responses and behaviour]
-- [Name 2]: [Designed the website and tested the bot]
+- [Aadi Narayanan K]: [Designed the website and tested the bot]
 
 
 ---
