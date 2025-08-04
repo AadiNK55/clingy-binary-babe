@@ -74,7 +74,7 @@ const ClingOSChatbot = () => {
       });
       
       const data = await response.json();
-      return data.response || getClingyResponse(userInput);
+      return data[0]?.output || getClingyResponse(userInput);
     } catch (error) {
       console.error("Webhook error:", error);
       return getClingyResponse(userInput);
