@@ -61,7 +61,7 @@ const ClingOSChatbot = () => {
 
   const sendToWebhook = async (userInput: string): Promise<string> => {
     try {
-      const response = await fetch("https://amayonice.app.n8n.cloud/webhook/43cfc050-3985-4af9-bb4d-81dee2ad2eab", {
+      const response = await fetch("https://amayonice.app.n8n.cloud/webhook-test/43cfc050-3985-4af9-bb4d-81dee2ad2eab", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
