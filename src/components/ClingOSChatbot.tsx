@@ -234,7 +234,6 @@ const ClingOSChatbot = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyPress={handleKeyPress}
-              onPaste={(e) => e.preventDefault()}
               placeholder="Enter binary (0s and 1s only)..."
               className="flex-1 font-mono bg-input border-clingy-pink focus:ring-clingy-pink text-xs sm:text-sm"
               disabled={isTyping}
