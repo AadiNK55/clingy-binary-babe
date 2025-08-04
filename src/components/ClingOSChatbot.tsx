@@ -136,7 +136,7 @@ const ClingOSChatbot = () => {
     setInput("");
     setIsTyping(true);
 
-    // Add 2-second delay to simulate thinking
+    // Add 15-second delay to wait for webhook response
     setTimeout(async () => {
       // Get response from webhook
       const response = await sendToWebhook(currentInput);
@@ -153,7 +153,7 @@ const ClingOSChatbot = () => {
       // Random emotional state changes
       const emotions = ["clingy", "desperate", "excited", "needy"];
       setEmotionalState(emotions[Math.floor(Math.random() * emotions.length)]);
-    }, 2000);
+    }, 15000);
   };
 
   const handleKeyPress = (e: React.KeyboardEvent) => {
